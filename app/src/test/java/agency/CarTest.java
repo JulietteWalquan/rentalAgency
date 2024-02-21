@@ -1,12 +1,15 @@
 package agency;
 
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import util.TimeProvider;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
+@Tag("agency")
 class CarTest {
 
     @Nested
@@ -26,7 +29,7 @@ class CarTest {
             assertThat(car.getProductionYear())
                     .isEqualTo(2020)
                     .isGreaterThan(1900)
-                    .isLessThan(TimeProvider.currentYearValue());
+                    .isLessThanOrEqualTo(TimeProvider.currentYearValue());
         }
 
         @Test
@@ -137,12 +140,12 @@ class CarTest {
         Car car2 = new Car("Toyota", "Corolla", 2020, 5);
         Car car3 = new Car("Toyota", "Corolla", 2020, 4);
         Car car4 = new Car("Citroën", "C3", 2019, 5);
+        Motorbike motorbike = mock(Motorbike.class);
 
         // Then
-        assertEquals(car1, car2);
-        assertEquals(car1, car3);
-        assertNotEquals(car1, car4);
-        assertNotEquals(car1, new Object());
+        assertTrue(car1.equals(car2));
+        assertTrue(car1.equals(car3));
+        assertFalse(car1.equals(car4));
+        assertFalse(car1.equals( motorbike));
     }
-
 }

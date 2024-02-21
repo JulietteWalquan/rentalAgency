@@ -48,6 +48,13 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+//new task that only launch test related to the class Person
+tasks.register('agencyTest') {
+    useJUnitPlatform() {
+        includeTags("agency")
+    }
+}
+
 tasks.test {
     finalizedBy jacocoTestReport // report is always generated after tests run
 }
