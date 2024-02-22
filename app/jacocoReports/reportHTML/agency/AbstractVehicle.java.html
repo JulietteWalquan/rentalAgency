@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/>
+    <link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/>
+    <title>AbstractVehicle.java</title>
+    <link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/>
+    <script type="text/javascript" src="../jacoco-resources/prettify.js"></script>
+</head>
+<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
+<div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html"
+                                                              class="el_session">Sessions</a></span><a
+        href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">agency</a>
+    &gt; <span class="el_source">AbstractVehicle.java</span></div>
+<h1>AbstractVehicle.java</h1>
+<pre class="source lang-java linenums">package agency;
+
+public abstract class AbstractVehicle implements Vehicle {
+    private final String brand;
+    private final String model;
+    private final int productionYear;
+
+<span class="fc" id="L8">    public AbstractVehicle(String brand, String model, int productionYear) {</span>
+<span class="pc bpc" id="L9" title="2 of 4 branches missed.">        if (productionYear &lt; 1900 || productionYear &gt; 2024) {</span>
+<span class="nc" id="L10">            throw new IllegalArgumentException(&quot;Invalid production year : &quot; + productionYear + &quot;\n Production year must be between 1900 and 2024&quot;);</span>
+        }
+
+<span class="fc" id="L13">        this.brand = brand;</span>
+<span class="fc" id="L14">        this.model = model;</span>
+<span class="fc" id="L15">        this.productionYear = productionYear;</span>
+<span class="fc" id="L16">    }</span>
+
+    /**
+     * Get the brand of the vehicle
+     *
+     * @return a string representing the brand of the vehicle
+     */
+    public String getBrand() {
+<span class="fc" id="L24">        return brand;</span>
+    }
+
+    /**
+     * Get the model of the vehicle
+     *
+     * @return a string representing the model of the vehicle
+     */
+    public String getModel() {
+<span class="fc" id="L33">        return model;</span>
+    }
+
+    /**
+     * Get the production year of the vehicle
+     *
+     * @return an integer representing the production year of the vehicle
+     */
+    public int getProductionYear() {
+<span class="fc" id="L42">        return productionYear;</span>
+    }
+
+    /**
+     * Calculate the daily rental price of the vehicle
+     * This method is abstract and must be implemented by the subclasses
+     *
+     * @return a double representing the daily rental price of the vehicle
+     */
+    public abstract double dailyRentalPrice();
+}
+</pre>
+<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>
+</div>
+</body>
+</html>

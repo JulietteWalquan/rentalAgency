@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/>
+    <link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/>
+    <title>Car.java</title>
+    <link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/>
+    <script type="text/javascript" src="../jacoco-resources/prettify.js"></script>
+</head>
+<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
+<div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html"
+                                                              class="el_session">Sessions</a></span><a
+        href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">agency</a>
+    &gt; <span class="el_source">Car.java</span></div>
+<h1>Car.java</h1>
+<pre class="source lang-java linenums">package agency;
+
+import utils.TimeProvider;
+
+public class Car extends AbstractVehicle {
+    private final int numberOfSeats;
+
+    /**
+     * Create a new car
+     *
+     * @param brand          the brand of the car
+     * @param model          the model of the car
+     * @param productionYear the production year of the car
+     * @param numberOfSeats  the number of seats of the car
+     * @throws IllegalArgumentException if the production year is not between 1900 and 2024 or if the number of seats is less than 1
+     */
+    public Car(String brand, String model, int productionYear, int numberOfSeats) throws IllegalArgumentException {
+<span class="fc" id="L18">        super(brand, model, productionYear);</span>
+
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (numberOfSeats &lt; 1) {</span>
+<span class="nc" id="L21">            throw new IllegalArgumentException(&quot;Invalid number of seats : &quot; + numberOfSeats + &quot;\n Number of seats must be greater than 0&quot;);</span>
+        }
+
+<span class="fc" id="L24">        this.numberOfSeats = numberOfSeats;</span>
+<span class="fc" id="L25">    }</span>
+
+    /**
+     * Check if the car is new
+     *
+     * @return true if the car is less than 5 years old, false otherwise
+     */
+    public boolean isNew() {
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        return TimeProvider.currentYearValue() - getProductionYear() &lt; 5;</span>
+    }
+
+    public double dailyRentalPrice() {
+        double price;
+
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (isNew()) {</span>
+<span class="fc" id="L40">            price = 40 * numberOfSeats;</span>
+        } else {
+<span class="nc" id="L42">            price = 20 * numberOfSeats;</span>
+        }
+
+<span class="fc" id="L45">        return price;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        String seats = (numberOfSeats == 1) ? &quot; seat&quot; : &quot; seats&quot;;</span>
+<span class="fc" id="L51">        return &quot;Car : &quot; + getBrand() + &quot; &quot; + getModel() + &quot; &quot; + getProductionYear() + &quot; (&quot; + numberOfSeats + seats + &quot;) : &quot; + dailyRentalPrice() + &quot;â‚¬/day&quot;;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (o.getClass() == Car.class) {</span>
+<span class="pc bpc" id="L57" title="2 of 6 branches missed.">            return this.getBrand().equals(((Car) o).getBrand()) &amp;&amp; this.getModel().equals(((Car) o).getModel()) &amp;&amp; this.getProductionYear() == ((Car) o).getProductionYear();</span>
+        }
+<span class="fc" id="L59">        return false;</span>
+    }
+}
+</pre>
+<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>
+</div>
+</body>
+</html>
