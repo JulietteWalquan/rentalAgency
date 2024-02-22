@@ -15,14 +15,14 @@ public class Car extends AbstractVehicle {
      * @throws IllegalArgumentException if the production year is not between 1900 and 2024 or if the number of seats is less than 1
      */
     public Car(String brand, String model, int productionYear, int numberOfSeats) throws IllegalArgumentException {
-<span class="nc" id="L18">        super(brand, model, productionYear);</span>
+<span class="fc" id="L18">        super(brand, model, productionYear);</span>
 
-<span class="nc bnc" id="L20" title="All 2 branches missed.">        if (numberOfSeats &lt; 1) {</span>
-<span class="nc" id="L21">            throw new IllegalArgumentException(&quot;Invalid number of seats : &quot; + numberOfSeats + &quot;\n Number of seats must be greater than 0&quot;);</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (numberOfSeats &lt; 1) {</span>
+<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;Invalid number of seats : &quot; + numberOfSeats + &quot;\n Number of seats must be greater than 0&quot;);</span>
         }
 
-<span class="nc" id="L24">        this.numberOfSeats = numberOfSeats;</span>
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L24">        this.numberOfSeats = numberOfSeats;</span>
+<span class="fc" id="L25">    }</span>
 
     /**
      * Check if the car is new
@@ -30,33 +30,33 @@ public class Car extends AbstractVehicle {
      * @return true if the car is less than 5 years old, false otherwise
      */
     public boolean isNew() {
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        return TimeProvider.currentYearValue() - getProductionYear() &lt; 5;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        return TimeProvider.currentYearValue() - getProductionYear() &lt; 5;</span>
     }
 
     public double dailyRentalPrice() {
         double price;
 
-<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (isNew()) {</span>
-<span class="nc" id="L40">            price = 40 * numberOfSeats;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (isNew()) {</span>
+<span class="fc" id="L40">            price = 40 * numberOfSeats;</span>
         } else {
-<span class="nc" id="L42">            price = 20 * numberOfSeats;</span>
+<span class="fc" id="L42">            price = 20 * numberOfSeats;</span>
         }
 
-<span class="nc" id="L45">        return price;</span>
+<span class="fc" id="L45">        return price;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        String seats = (numberOfSeats == 1) ? &quot; seat&quot; : &quot; seats&quot;;</span>
-<span class="nc" id="L51">        return &quot;Car : &quot; + getBrand() + &quot; &quot; + getModel() + &quot; &quot; + getProductionYear() + &quot; (&quot; + numberOfSeats + seats + &quot;) : &quot; + dailyRentalPrice() + &quot;â‚¬/day&quot;;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        String seats = (numberOfSeats == 1) ? &quot; seat&quot; : &quot; seats&quot;;</span>
+<span class="fc" id="L51">        return &quot;Car : &quot; + getBrand() + &quot; &quot; + getModel() + &quot; &quot; + getProductionYear() + &quot; (&quot; + numberOfSeats + seats + &quot;) : &quot; + dailyRentalPrice() + &quot;â‚¬/day&quot;;</span>
     }
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (o.getClass() == Car.class) {</span>
-<span class="nc bnc" id="L57" title="All 6 branches missed.">            return this.getBrand().equals(((Car) o).getBrand()) &amp;&amp; this.getModel().equals(((Car) o).getModel()) &amp;&amp; this.getProductionYear() == ((Car) o).getProductionYear();</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (o.getClass() == Car.class) {</span>
+<span class="pc bpc" id="L57" title="2 of 6 branches missed.">            return this.getBrand().equals(((Car) o).getBrand()) &amp;&amp; this.getModel().equals(((Car) o).getModel()) &amp;&amp; this.getProductionYear() == ((Car) o).getProductionYear();</span>
         }
-<span class="nc" id="L59">        return false;</span>
+<span class="fc" id="L59">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

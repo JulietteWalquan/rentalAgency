@@ -3,11 +3,13 @@ package agency;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import util.TimeProvider;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockStatic;
 
 @Tag("agency")
 class MotorbikeTest {
@@ -18,18 +20,21 @@ class MotorbikeTest {
         void test_create_normal_motorbike() {
             // Given
             Motorbike motorbike = new Motorbike("Yamaha", "XSR900 GP", 2024, 890);
+            try (MockedStatic<TimeProvider> timeProvider = mockStatic(TimeProvider.class)) {
+                timeProvider.when(TimeProvider::currentYearValue).thenReturn(2024);
 
-            // Then
-            assertThat(motorbike.getBrand())
-                    .isEqualTo("Yamaha")
-                    .isNotEqualTo("Suzuki");
-            assertThat(motorbike.getModel())
-                    .isEqualTo("XSR900 GP")
-                    .isNotEqualTo("XSR900");
-            assertThat(motorbike.getProductionYear())
-                    .isEqualTo(2024)
-                    .isGreaterThan(1900)
-                    .isLessThanOrEqualTo(TimeProvider.currentYearValue());
+                // Then
+                assertThat(motorbike.getBrand())
+                        .isEqualTo("Yamaha")
+                        .isNotEqualTo("Suzuki");
+                assertThat(motorbike.getModel())
+                        .isEqualTo("XSR900 GP")
+                        .isNotEqualTo("XSR900");
+                assertThat(motorbike.getProductionYear())
+                        .isEqualTo(2024)
+                        .isGreaterThan(1900)
+                        .isLessThanOrEqualTo(TimeProvider.currentYearValue());
+            }
         }
 
         @Test

@@ -3,11 +3,13 @@ package agency;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import util.TimeProvider;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockStatic;
 
 @Tag("agency")
 class CarTest {
@@ -19,17 +21,21 @@ class CarTest {
             // Given
             Car car = new Car("Toyota", "Corolla", 2020, 5);
 
-            // Then
-            assertThat(car.getBrand())
-                    .isEqualTo("Toyota")
-                    .isNotEqualTo("Corolla");
-            assertThat(car.getModel())
-                    .isEqualTo("Corolla")
-                    .isNotEqualTo("Toyota");
-            assertThat(car.getProductionYear())
-                    .isEqualTo(2020)
-                    .isGreaterThan(1900)
-                    .isLessThanOrEqualTo(TimeProvider.currentYearValue());
+            try (MockedStatic<TimeProvider> timeProvider = mockStatic(TimeProvider.class)) {
+                timeProvider.when(TimeProvider::currentYearValue).thenReturn(2024);
+
+                // Then
+                assertThat(car.getBrand())
+                        .isEqualTo("Toyota")
+                        .isNotEqualTo("Corolla");
+                assertThat(car.getModel())
+                        .isEqualTo("Corolla")
+                        .isNotEqualTo("Toyota");
+                assertThat(car.getProductionYear())
+                        .isEqualTo(2020)
+                        .isGreaterThan(1900)
+                        .isLessThanOrEqualTo(TimeProvider.currentYearValue());
+            }
         }
 
         @Test
