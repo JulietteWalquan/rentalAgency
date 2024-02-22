@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import util.TimeProvider;
+import utils.TimeProvider;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +15,7 @@ import static org.mockito.Mockito.mockStatic;
 class CarTest {
 
     @Nested
+    @Tag("agency")
     class CreateCar {
         @Test
         void test_create_normal_car() {
@@ -71,6 +72,7 @@ class CarTest {
 
 
     @Nested
+    @Tag("agency")
     class DailyRentalPrice {
         @Test
         void test_daily_rental_price_new_car() {
@@ -99,6 +101,7 @@ class CarTest {
 
 
     @Nested
+    @Tag("agency")
     class ToString {
         @Test
         void test_toString_many_seats() {

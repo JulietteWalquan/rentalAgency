@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN"
         "report.dtd">
 <report name="app">
-    <sessioninfo id="Dell-Juliette-d00cfd7d" start="1708590496416" dump="1708590503777"/>
+    <sessioninfo id="Dell-Juliette-36af439" start="1708592107541" dump="1708592114010"/>
     <package name="agency">
         <class name="agency/AbstractVehicle" sourcefilename="AbstractVehicle.java">
             <method name="&lt;init&gt;" desc="(Ljava/lang/String;Ljava/lang/String;I)V" line="8">
@@ -273,13 +273,13 @@
         <counter type="METHOD" missed="0" covered="20"/>
         <counter type="CLASS" missed="0" covered="5"/>
     </package>
-    <package name="util">
-        <class name="util/TimeProvider" sourcefilename="TimeProvider.java">
+    <package name="utils">
+        <class name="utils/TimeProvider" sourcefilename="TimeProvider.java">
             <method name="&lt;init&gt;" desc="()V" line="5">
-                <counter type="INSTRUCTION" missed="3" covered="0"/>
-                <counter type="LINE" missed="1" covered="0"/>
-                <counter type="COMPLEXITY" missed="1" covered="0"/>
-                <counter type="METHOD" missed="1" covered="0"/>
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
             </method>
             <method name="currentYearValue" desc="()I" line="13">
                 <counter type="INSTRUCTION" missed="0" covered="4"/>
@@ -287,31 +287,31 @@
                 <counter type="COMPLEXITY" missed="0" covered="1"/>
                 <counter type="METHOD" missed="0" covered="1"/>
             </method>
-            <counter type="INSTRUCTION" missed="3" covered="4"/>
-            <counter type="LINE" missed="1" covered="1"/>
-            <counter type="COMPLEXITY" missed="1" covered="1"/>
-            <counter type="METHOD" missed="1" covered="1"/>
+            <counter type="INSTRUCTION" missed="0" covered="7"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="0" covered="2"/>
+            <counter type="METHOD" missed="0" covered="2"/>
             <counter type="CLASS" missed="0" covered="1"/>
         </class>
         <sourcefile name="TimeProvider.java">
-            <line nr="5" mi="3" ci="0" mb="0" cb="0"/>
+            <line nr="5" mi="0" ci="3" mb="0" cb="0"/>
             <line nr="13" mi="0" ci="4" mb="0" cb="0"/>
-            <counter type="INSTRUCTION" missed="3" covered="4"/>
-            <counter type="LINE" missed="1" covered="1"/>
-            <counter type="COMPLEXITY" missed="1" covered="1"/>
-            <counter type="METHOD" missed="1" covered="1"/>
+            <counter type="INSTRUCTION" missed="0" covered="7"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="0" covered="2"/>
+            <counter type="METHOD" missed="0" covered="2"/>
             <counter type="CLASS" missed="0" covered="1"/>
         </sourcefile>
-        <counter type="INSTRUCTION" missed="3" covered="4"/>
-        <counter type="LINE" missed="1" covered="1"/>
-        <counter type="COMPLEXITY" missed="1" covered="1"/>
-        <counter type="METHOD" missed="1" covered="1"/>
+        <counter type="INSTRUCTION" missed="0" covered="7"/>
+        <counter type="LINE" missed="0" covered="2"/>
+        <counter type="COMPLEXITY" missed="0" covered="2"/>
+        <counter type="METHOD" missed="0" covered="2"/>
         <counter type="CLASS" missed="0" covered="1"/>
     </package>
-    <counter type="INSTRUCTION" missed="3" covered="256"/>
+    <counter type="INSTRUCTION" missed="0" covered="259"/>
     <counter type="BRANCH" missed="4" covered="30"/>
-    <counter type="LINE" missed="1" covered="54"/>
-    <counter type="COMPLEXITY" missed="5" covered="34"/>
-    <counter type="METHOD" missed="1" covered="21"/>
+    <counter type="LINE" missed="0" covered="55"/>
+    <counter type="COMPLEXITY" missed="4" covered="35"/>
+    <counter type="METHOD" missed="0" covered="22"/>
     <counter type="CLASS" missed="0" covered="6"/>
 </report>

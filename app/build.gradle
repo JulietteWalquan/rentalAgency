@@ -8,6 +8,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+
+    // Apply the jacoco plugin to generate reports after tests run.
     id 'jacoco'
 }
 
@@ -21,9 +23,11 @@ dependencies {
     testImplementation libs.junit.jupiter
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // Use AssertJ for more powerful assertions.
     // https://mvnrepository.com/artifact/org.assertj/assertj-core
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.25.3'
 
+    // Use Mockito for mocking objects in tests.
     // https://mvnrepository.com/artifact/org.mockito/mockito-core
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.10.0'
 
@@ -48,10 +52,17 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-//new task that only launch test related to the class Person
-tasks.register('agencyTest') {
+//new task that only launch test related to the class in the packages agencyTest
+tasks.register('agencyTest', Test) {
     useJUnitPlatform() {
         includeTags("agency")
+    }
+}
+
+//new task that only launch test related to the class in the packages utilsTest
+tasks.register('utilsTest', Test) {
+    useJUnitPlatform() {
+        includeTags("utils")
     }
 }
 
