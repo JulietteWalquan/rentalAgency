@@ -1,7 +1,7 @@
 package agency;
 
+import agency.abstractAndInterface.Vehicle;
 import agency.exception.UnknownVehicleException;
-import agency.interfaceAndAbstract.Vehicle;
 import org.junit.jupiter.api.*;
 import utils.BrandCriterion;
 
@@ -18,6 +18,7 @@ import static org.mockito.Mockito.when;
 @Tag("agency")
 class RentalAgencyTest {
 
+    // agency and vehicles to test the criterion and rent vehicle methods
     static RentalAgency agencyWithVehicles;
     static Car car1;
     static Car car2;
@@ -45,6 +46,7 @@ class RentalAgencyTest {
 
     @Nested
     class CreateRentalAgency {
+        @DisplayName("Create a rental agency with default constructor")
         @Test
         void test_default_constructor() {
             // Given
@@ -54,6 +56,7 @@ class RentalAgencyTest {
             assertNotNull(agency.getVehicles());
         }
 
+        @DisplayName("Create a rental agency with vehicles")
         @Test
         void test_constructor_with_vehicles() {
             // Given
@@ -71,6 +74,7 @@ class RentalAgencyTest {
 
     @Nested
     class AddVehicle {
+        @DisplayName("Add a vehicle to the agency")
         @Test
         void test_add_vehicle() {
             // Given
@@ -87,6 +91,7 @@ class RentalAgencyTest {
                     .containsExactly(car);
         }
 
+        @DisplayName("Add an existing vehicle to the agency")
         @Test
         void test_add_existing_vehicle() {
             // Given
@@ -118,6 +123,7 @@ class RentalAgencyTest {
             agency = new RentalAgency(new ArrayList<>(List.of(car, motorbike)));
         }
 
+        @DisplayName("Remove a vehicle from the agency")
         @Test
         void test_remove_vehicle() throws UnknownVehicleException {
             // When
@@ -129,6 +135,7 @@ class RentalAgencyTest {
                     .containsExactly(motorbike);
         }
 
+        @DisplayName("Remove an unknown vehicle from the agency")
         @Test
         void test_remove_unknown_vehicle() {
             // When
@@ -144,21 +151,22 @@ class RentalAgencyTest {
 
     @Nested
     class Criterion {
-
         PrintStream standardOut = System.out;
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
         @BeforeEach
         void setUp() {
-            // Redirect output stream
+            // Redirect output stream to capture the print
             System.setOut(new PrintStream(outputStreamCaptor));
         }
 
         @AfterEach
         public void tearDown() {
+            // Reset output stream
             System.setOut(standardOut);
         }
 
+        @DisplayName("Test the select method with a brand criterion for a car")
         @Test
         void test_select_car() {
             // When
@@ -172,6 +180,7 @@ class RentalAgencyTest {
                     .doesNotContain(motorbike1, car1);
         }
 
+        @DisplayName("Test the select method with a brand criterion for a motorbike")
         @Test
         void test_select_motorbike() {
             // When
@@ -185,6 +194,7 @@ class RentalAgencyTest {
                     .doesNotContain(motorbike2, car2);
         }
 
+        @DisplayName("Test the print method with a brand criterion for a car")
         @Test
         void test_print_selected_cars() {
             // When
@@ -197,6 +207,7 @@ class RentalAgencyTest {
                     outputStreamCaptor.toString().trim());
         }
 
+        @DisplayName("Test the print method with a brand criterion for a motorbike")
         @Test
         void test_print_selected_motorbikes() {
             // When
@@ -211,6 +222,7 @@ class RentalAgencyTest {
 
     @Nested
     class RentVehicle {
+        @DisplayName("Test the rentVehicle method")
         @Test
         void test_rent_vehicle() throws UnknownVehicleException {
             // Given
@@ -230,6 +242,7 @@ class RentalAgencyTest {
             assertFalse(agencyWithVehicles.vehicleIsRented(car2));
         }
 
+        @DisplayName("Test the rentVehicle method with an unknown vehicle")
         @Test
         void test_rent_unknown_vehicle() {
             // Given
@@ -244,6 +257,7 @@ class RentalAgencyTest {
             assertEquals("Vehicle Car : Ford Fiesta 2019 (5 seats) : 200.0€/day not found in the agency", exception.getMessage());
         }
 
+        @DisplayName("Test the rentVehicle method with a vehicle that is already rented")
         @Test
         void test_rent_already_rented_vehicle() throws UnknownVehicleException {
             // Given
@@ -258,6 +272,7 @@ class RentalAgencyTest {
             assertEquals("The vehicle is already rented", exception.getMessage());
         }
 
+        @DisplayName("Test the rentVehicle method with a client that already rent a vehicle")
         @Test
         void test_rent_client_already_rent_vehicle() throws UnknownVehicleException {
             // Given
@@ -271,6 +286,7 @@ class RentalAgencyTest {
             assertEquals("The client already rent a vehicle", exception.getMessage());
         }
 
+        @DisplayName("Test the rentVehicle method")
         @Test
         void test_return_vehicle() throws UnknownVehicleException {
             // Given

@@ -1,12 +1,17 @@
 package utils;
 
-import agency.interfaceAndAbstract.Vehicle;
+import agency.abstractAndInterface.Vehicle;
 
 import java.util.function.Predicate;
 
 public class BrandCriterion implements Predicate<Vehicle> {
     private final String brand;
 
+    /**
+     * Create a new brand criterion with the following parameters
+     *
+     * @param brand the brand to match
+     */
     public BrandCriterion(String brand) {
         this.brand = brand;
     }
@@ -24,6 +29,11 @@ public class BrandCriterion implements Predicate<Vehicle> {
     }
 
 
+    /**
+     * Get the brand to match
+     *
+     * @return a string representing the brand to match
+     */
     public String getBrand() {
         return brand;
     }

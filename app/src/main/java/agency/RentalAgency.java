@@ -1,7 +1,7 @@
 package agency;
 
+import agency.abstractAndInterface.Vehicle;
 import agency.exception.UnknownVehicleException;
-import agency.interfaceAndAbstract.Vehicle;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -94,7 +94,7 @@ public class RentalAgency {
      * Returns if the client is renting a vehicle
      *
      * @param client the client to check
-     * @return true if the client is renting a vehicle, false otherwise
+     * @return {@code true} if the client is renting a vehicle, {@code false} otherwise
      */
     public boolean aVehicleIsRentedBy(Client client) {
         return rentedVehicles.containsKey(client);
@@ -105,7 +105,7 @@ public class RentalAgency {
      * Returns if the vehicle is rented
      *
      * @param v the vehicle to check
-     * @return true if the vehicle is rented, false otherwise
+     * @return {@code true} if the vehicle is rented, {@code false} otherwise
      */
     public boolean vehicleIsRented(Vehicle v) {
         return rentedVehicles.containsValue(v);

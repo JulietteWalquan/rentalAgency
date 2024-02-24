@@ -2,6 +2,7 @@ package utils;
 
 import agency.Car;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -21,6 +22,7 @@ class BrandCriterionTest {
         brandCriterion = new BrandCriterion(brand);
     }
 
+    @DisplayName("Test to create a brandCriterion")
     @Test
     void test_create_brandCriterion() {
         // Given
@@ -30,9 +32,11 @@ class BrandCriterionTest {
         assertNotNull(brandCriterionTest);
         assertThat(brandCriterionTest.getBrand())
                 .isNotBlank()
-                .isEqualTo(brand);
+                .isEqualTo(brand)
+                .isNotEqualTo("Renault");
     }
 
+    @DisplayName("Test to check if the brandCriterion match")
     @Test
     void test_successful_test() {
         // When
@@ -43,6 +47,7 @@ class BrandCriterionTest {
         assertTrue(brandCriterion.test(car));
     }
 
+    @DisplayName("Test to check if the brandCriterion doesn't match")
     @Test
     void test_unsuccessful_test() {
         // When

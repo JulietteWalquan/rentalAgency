@@ -4,6 +4,10 @@ import java.util.Calendar;
 
 public class TimeProvider {
 
+    private TimeProvider() {
+        // private constructor to hide the implicit public one
+    }
+
     /**
      * Get the current year from the java.util.Calendar class
      *

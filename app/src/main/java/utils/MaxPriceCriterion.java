@@ -1,13 +1,18 @@
 package utils;
 
-import agency.interfaceAndAbstract.Vehicle;
+import agency.abstractAndInterface.Vehicle;
 
 import java.util.function.Predicate;
 
 public class MaxPriceCriterion implements Predicate<Vehicle> {
     private final double maxPrice;
 
-    public MaxPriceCriterion(double maxPrice) throws IllegalArgumentException {
+    /**
+     * Create a new max price criterion with the following parameters
+     *
+     * @param maxPrice the maximum price to match
+     */
+    public MaxPriceCriterion(double maxPrice) {
         this.maxPrice = maxPrice;
     }
 
@@ -24,6 +29,11 @@ public class MaxPriceCriterion implements Predicate<Vehicle> {
     }
 
 
+    /**
+     * Get the maximum price to match
+     *
+     * @return a double representing the maximum price to match
+     */
     public double getMaxPrice() {
         return maxPrice;
     }

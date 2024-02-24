@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RentalAgency.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">agency</a> &gt; <span class="el_source">RentalAgency.java</span></div><h1>RentalAgency.java</h1><pre class="source lang-java linenums">package agency;
 
 import agency.exception.UnknownVehicleException;
-import agency.interfaceAndAbstract.Vehicle;
+import agency.abstractAndInterface.Vehicle;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -10,36 +10,36 @@ public class RentalAgency {
 
     private final List&lt;Vehicle&gt; vehicles;
 
-    private Map&lt;Client, Vehicle&gt; rentedVehicles;
+    private final Map&lt;Client, Vehicle&gt; rentedVehicles;
 
     public RentalAgency() {
-<span class="fc" id="L16">        this(new ArrayList&lt;&gt;());</span>
-<span class="fc" id="L17">    }</span>
+<span class="nc" id="L16">        this(new ArrayList&lt;&gt;());</span>
+<span class="nc" id="L17">    }</span>
 
-<span class="fc" id="L19">    public RentalAgency(List&lt;Vehicle&gt; vehicles) {</span>
-<span class="fc" id="L20">        this.vehicles = vehicles;</span>
-<span class="fc" id="L21">        this.rentedVehicles = new HashMap&lt;&gt;();</span>
-<span class="fc" id="L22">    }</span>
+<span class="nc" id="L19">    public RentalAgency(List&lt;Vehicle&gt; vehicles) {</span>
+<span class="nc" id="L20">        this.vehicles = vehicles;</span>
+<span class="nc" id="L21">        this.rentedVehicles = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L22">    }</span>
 
     public boolean add(Vehicle vehicle) {
-<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (vehicles.contains(vehicle)) {</span>
-<span class="fc" id="L26">            return false;</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (vehicles.contains(vehicle)) {</span>
+<span class="nc" id="L26">            return false;</span>
         }
 
-<span class="fc" id="L29">        vehicles.add(vehicle);</span>
-<span class="fc" id="L30">        return true;</span>
+<span class="nc" id="L29">        vehicles.add(vehicle);</span>
+<span class="nc" id="L30">        return true;</span>
     }
 
     public void remove(Vehicle vehicle) throws UnknownVehicleException {
-<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (!vehicles.contains(vehicle)) {</span>
-<span class="fc" id="L35">            throw new UnknownVehicleException(vehicle);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (!vehicles.contains(vehicle)) {</span>
+<span class="nc" id="L35">            throw new UnknownVehicleException(vehicle);</span>
         }
 
-<span class="fc" id="L38">        vehicles.remove(vehicle);</span>
-<span class="fc" id="L39">    }</span>
+<span class="nc" id="L38">        vehicles.remove(vehicle);</span>
+<span class="nc" id="L39">    }</span>
 
     public List&lt;Vehicle&gt; getVehicles() {
-<span class="fc" id="L42">        return vehicles;</span>
+<span class="nc" id="L42">        return vehicles;</span>
     }
 
 
@@ -51,7 +51,7 @@ public class RentalAgency {
      * @return the list of cars of this agency that satisfy the given criterion
      */
     public List&lt;Vehicle&gt; select(Predicate&lt;Vehicle&gt; criterion) {
-<span class="fc" id="L54">        return getVehicles().stream().filter(criterion).toList();</span>
+<span class="nc" id="L54">        return getVehicles().stream().filter(criterion).toList();</span>
     }
 
 
@@ -61,8 +61,8 @@ public class RentalAgency {
      * @param criterion the criterion that the selected cars must satisfy
      */
     public void printSelectedVehicles(Predicate&lt;Vehicle&gt; criterion) {
-<span class="fc" id="L64">        select(criterion).forEach(System.out::println);</span>
-<span class="fc" id="L65">    }</span>
+<span class="nc" id="L64">        select(criterion).forEach(System.out::println);</span>
+<span class="nc" id="L65">    }</span>
 
 
     /**
@@ -75,18 +75,18 @@ public class RentalAgency {
      * @throws IllegalStateException   if the vehicle is already rented or the client already rent a vehicle
      */
     public double rentVehicle(Client client, Vehicle vehicle) throws UnknownVehicleException, IllegalStateException {
-<span class="fc bfc" id="L78" title="All 2 branches covered.">        if (!getVehicles().contains(vehicle)) {</span>
-<span class="fc" id="L79">            throw new UnknownVehicleException(vehicle);</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (!getVehicles().contains(vehicle)) {</span>
+<span class="nc" id="L79">            throw new UnknownVehicleException(vehicle);</span>
         }
-<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (rentedVehicles.containsValue(vehicle)) {</span>
-<span class="fc" id="L82">            throw new IllegalStateException(&quot;The vehicle is already rented&quot;);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (rentedVehicles.containsValue(vehicle)) {</span>
+<span class="nc" id="L82">            throw new IllegalStateException(&quot;The vehicle is already rented&quot;);</span>
         }
-<span class="fc bfc" id="L84" title="All 2 branches covered.">        if (rentedVehicles.containsKey(client)) {</span>
-<span class="fc" id="L85">            throw new IllegalStateException(&quot;The client already rent a vehicle&quot;);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        if (rentedVehicles.containsKey(client)) {</span>
+<span class="nc" id="L85">            throw new IllegalStateException(&quot;The client already rent a vehicle&quot;);</span>
         }
 
-<span class="fc" id="L88">        rentedVehicles.put(client, vehicle);</span>
-<span class="fc" id="L89">        return vehicle.dailyRentalPrice();</span>
+<span class="nc" id="L88">        rentedVehicles.put(client, vehicle);</span>
+<span class="nc" id="L89">        return vehicle.dailyRentalPrice();</span>
     }
 
 
@@ -97,7 +97,7 @@ public class RentalAgency {
      * @return true if the client is renting a vehicle, false otherwise
      */
     public boolean aVehicleIsRentedBy(Client client) {
-<span class="fc" id="L100">        return rentedVehicles.containsKey(client);</span>
+<span class="nc" id="L100">        return rentedVehicles.containsKey(client);</span>
     }
 
 
@@ -108,7 +108,7 @@ public class RentalAgency {
      * @return true if the vehicle is rented, false otherwise
      */
     public boolean vehicleIsRented(Vehicle v) {
-<span class="fc" id="L111">        return rentedVehicles.containsValue(v);</span>
+<span class="nc" id="L111">        return rentedVehicles.containsValue(v);</span>
     }
 
 
@@ -118,8 +118,8 @@ public class RentalAgency {
      * @param client the client who will return the vehicle
      */
     public void returnVehicle(Client client) {
-<span class="fc" id="L121">        rentedVehicles.remove(client);</span>
-<span class="fc" id="L122">    }</span>
+<span class="nc" id="L121">        rentedVehicles.remove(client);</span>
+<span class="nc" id="L122">    }</span>
 
 
     /**
@@ -128,7 +128,7 @@ public class RentalAgency {
      * @return the collection of vehicles rented by the clients
      */
     public Collection&lt;Vehicle&gt; allRentedVehicles() {
-<span class="fc" id="L131">        return rentedVehicles.values();</span>
+<span class="nc" id="L131">        return rentedVehicles.values();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

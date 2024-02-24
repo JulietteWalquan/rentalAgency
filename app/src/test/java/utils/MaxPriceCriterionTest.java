@@ -2,6 +2,7 @@ package utils;
 
 import agency.Car;
 import agency.Motorbike;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +14,7 @@ import static org.mockito.Mockito.when;
 @Tag("utils")
 class MaxPriceCriterionTest {
 
+    @DisplayName("Test to create a maxPriceCriterion")
     @Test
     void test_create_positive_maxPriceCriterion() {
         // Given
@@ -25,10 +27,12 @@ class MaxPriceCriterionTest {
                 .isNotNaN()
                 .isNotNull()
                 .isNotNegative()
-                .isEqualTo(maxPrice);
+                .isEqualTo(maxPrice)
+                .isNotEqualTo(200.0);
     }
 
 
+    @DisplayName("Test to check if the maxPriceCriterion match")
     @Test
     void test_successful_test() {
         // Given
@@ -43,6 +47,7 @@ class MaxPriceCriterionTest {
         assertTrue(maxPriceCriterion.test(car));
     }
 
+    @DisplayName("Test to check if the maxPriceCriterion doesn't match")
     @Test
     void test_unsuccessful_test() {
         // Given

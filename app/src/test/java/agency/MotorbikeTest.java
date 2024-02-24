@@ -1,5 +1,6 @@
 package agency;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ class MotorbikeTest {
 
     @Nested
     class CreateMotorbike {
+        @DisplayName("Create a motorbike with normal values")
         @Test
         void test_create_normal_motorbike() {
             // Given
@@ -37,6 +39,7 @@ class MotorbikeTest {
             }
         }
 
+        @DisplayName("Create a motorbike with a greater production year than authorized")
         @Test
         void test_create_motorbike_with_greater_production_year() {
             // Given
@@ -47,6 +50,7 @@ class MotorbikeTest {
                     .isEqualTo("Invalid production year : 2025\n Production year must be between 1900 and 2024");
         }
 
+        @DisplayName("Create a motorbike with a lower production year than authorized")
         @Test
         void test_create_motorbike_with_lower_production_year() {
             // Given
@@ -57,6 +61,7 @@ class MotorbikeTest {
                     .isEqualTo("Invalid production year : 1899\n Production year must be between 1900 and 2024");
         }
 
+        @DisplayName("Create a motorbike with a lesser cylinder capacity than authorized")
         @Test
         void test_create_motorbike_with_less_cylinder_capacity() {
             // Given
@@ -69,6 +74,7 @@ class MotorbikeTest {
     }
 
 
+    @DisplayName("Test the daily rental price of a motorbike")
     @Test
     void test_daily_rental_price_motorbike() {
         // Given
@@ -82,8 +88,9 @@ class MotorbikeTest {
     }
 
 
+    @DisplayName("Test the toString method of a motorbike")
     @Test
-    void test_toString_many_seats() {
+    void test_toString() {
         // Given
         Motorbike motorbike = new Motorbike("Yamaha", "XSR900 GP", 2024, 890);
 
@@ -101,6 +108,7 @@ class MotorbikeTest {
     }
 
 
+    @DisplayName("Test the equals method of a motorbike")
     @Test
     void test_equals() {
         // Given

@@ -1,13 +1,13 @@
 package agency;
 
-import agency.interfaceAndAbstract.AbstractVehicle;
+import agency.abstractAndInterface.AbstractVehicle;
 import utils.TimeProvider;
 
 public class Car extends AbstractVehicle {
     private final int numberOfSeats;
 
     /**
-     * Create a new car
+     * Create a new car with the following parameters
      *
      * @param brand          the brand of the car
      * @param model          the model of the car
@@ -28,7 +28,7 @@ public class Car extends AbstractVehicle {
     /**
      * Check if the car is new
      *
-     * @return true if the car is less than 5 years old, false otherwise
+     * @return {@code true} if the car is less than 5 years old, {@code false} otherwise
      */
     public boolean isNew() {
         return TimeProvider.currentYearValue() - getProductionYear() < 5;
