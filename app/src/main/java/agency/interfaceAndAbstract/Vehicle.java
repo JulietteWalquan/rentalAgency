@@ -1,4 +1,4 @@
-package agency;
+package agency.interfaceAndAbstract;
 
 public interface Vehicle {
     /**

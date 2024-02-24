@@ -1,6 +1,6 @@
 package utils;
 
-import agency.Vehicle;
+import agency.interfaceAndAbstract.Vehicle;
 
 import java.util.function.Predicate;
 

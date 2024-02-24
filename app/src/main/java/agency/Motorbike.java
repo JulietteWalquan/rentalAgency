@@ -1,5 +1,7 @@
 package agency;
 
+import agency.interfaceAndAbstract.AbstractVehicle;
+
 public class Motorbike extends AbstractVehicle {
     private final int cylinderCapacity;
 

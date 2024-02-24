@@ -1,4 +1,6 @@
-package agency;
+package agency.exception;
+
+import agency.interfaceAndAbstract.Vehicle;
 
 public class UnknownVehicleException extends Exception {
     private final Vehicle vehicle;

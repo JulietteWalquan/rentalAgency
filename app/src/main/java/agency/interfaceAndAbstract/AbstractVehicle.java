@@ -1,4 +1,4 @@
-package agency;
+package agency.interfaceAndAbstract;
 
 public abstract class AbstractVehicle implements Vehicle {
     private final String brand;

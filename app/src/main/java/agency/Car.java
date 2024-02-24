@@ -1,5 +1,6 @@
 package agency;
 
+import agency.interfaceAndAbstract.AbstractVehicle;
 import utils.TimeProvider;
 
 public class Car extends AbstractVehicle {
