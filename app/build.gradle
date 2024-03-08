@@ -66,10 +66,6 @@ tasks.register('utilsTest', Test) {
     }
 }
 
-
-tasks.test {
-    finalizedBy jacocoTestReport // report is always generated after tests run
-}
 tasks.jacocoTestReport {
     reports {
         html.outputLocation = layout.buildDirectory.dir('../jacocoReports/reportHTML')
@@ -77,4 +73,7 @@ tasks.jacocoTestReport {
         xml.outputLocation =  layout.buildDirectory.file('../jacocoReports/reportXML/report.xml')
         csv.required = false
     }
+}
+tasks.test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
 }
