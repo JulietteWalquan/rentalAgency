@@ -5,32 +5,41 @@ import agency.abstractAndInterface.AbstractVehicle;
 public class Motorbike extends AbstractVehicle {
     private final int cylinderCapacity;
 
+    /**
+     * Create a new motorbike with the following parameters
+     *
+     * @param brand            the brand of the motorbike
+     * @param model            the model of the motorbike
+     * @param productionYear   the production year of the motorbike
+     * @param cylinderCapacity the cylinder capacity of the motorbike
+     * @throws IllegalArgumentException if the cylinder capacity is less than 50
+     */
     public Motorbike(String brand, String model, int productionYear, int cylinderCapacity) throws IllegalArgumentException {
-<span class="nc" id="L9">        super(brand, model, productionYear);</span>
-        
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (cylinderCapacity &lt; 50) {</span>
-<span class="nc" id="L12">            throw new IllegalArgumentException(&quot;Invalid cylinder capacity : &quot; + cylinderCapacity + &quot;\n Cylinder capacity must be greater than 50&quot;);</span>
+<span class="fc" id="L18">        super(brand, model, productionYear);</span>
+
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (cylinderCapacity &lt; 50) {</span>
+<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;Invalid cylinder capacity : &quot; + cylinderCapacity + &quot;\n Cylinder capacity must be greater than 50&quot;);</span>
         }
-        
-<span class="nc" id="L15">        this.cylinderCapacity = cylinderCapacity;</span>
-<span class="nc" id="L16">    }</span>
+
+<span class="fc" id="L24">        this.cylinderCapacity = cylinderCapacity;</span>
+<span class="fc" id="L25">    }</span>
 
     @Override
     public double dailyRentalPrice() {
-<span class="nc" id="L20">        return 0.25 * cylinderCapacity;</span>
+<span class="fc" id="L29">        return 0.25 * cylinderCapacity;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc" id="L25">        return &quot;Motorbike : &quot; + getBrand() + &quot; &quot; + getModel() + &quot; &quot; + getProductionYear() + &quot; (&quot; + cylinderCapacity + &quot;cm3) : &quot; + dailyRentalPrice() + &quot;â‚¬/day&quot;;</span>
+<span class="fc" id="L34">        return &quot;Motorbike : &quot; + getBrand() + &quot; &quot; + getModel() + &quot; &quot; + getProductionYear() + &quot; (&quot; + cylinderCapacity + &quot;cm3) : &quot; + dailyRentalPrice() + &quot;â‚¬/day&quot;;</span>
     }
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (o.getClass() == Motorbike.class) {</span>
-<span class="nc bnc" id="L31" title="All 6 branches missed.">            return this.getBrand().equals(((Motorbike) o).getBrand()) &amp;&amp; this.getModel().equals(((Motorbike) o).getModel()) &amp;&amp; this.getProductionYear() == ((Motorbike) o).getProductionYear();</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (o.getClass() == Motorbike.class) {</span>
+<span class="pc bpc" id="L40" title="1 of 6 branches missed.">            return this.getBrand().equals(((Motorbike) o).getBrand()) &amp;&amp; this.getModel().equals(((Motorbike) o).getModel()) &amp;&amp; this.getProductionYear() == ((Motorbike) o).getProductionYear();</span>
         }
-<span class="nc" id="L33">        return false;</span>
+<span class="fc" id="L42">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

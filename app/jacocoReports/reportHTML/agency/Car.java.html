@@ -7,7 +7,7 @@ public class Car extends AbstractVehicle {
     private final int numberOfSeats;
 
     /**
-     * Create a new car
+     * Create a new car with the following parameters
      *
      * @param brand          the brand of the car
      * @param model          the model of the car
@@ -28,36 +28,36 @@ public class Car extends AbstractVehicle {
     /**
      * Check if the car is new
      *
-     * @return true if the car is less than 5 years old, false otherwise
+     * @return {@code true} if the car is less than 5 years old, {@code false} otherwise
      */
     public boolean isNew() {
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        return TimeProvider.currentYearValue() - getProductionYear() &lt; 5;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        return TimeProvider.currentYearValue() - getProductionYear() &lt; 5;</span>
     }
 
     public double dailyRentalPrice() {
         double price;
 
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (isNew()) {</span>
-<span class="nc" id="L41">            price = 40 * numberOfSeats;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (isNew()) {</span>
+<span class="fc" id="L41">            price = 40 * numberOfSeats;</span>
         } else {
-<span class="nc" id="L43">            price = 20 * numberOfSeats;</span>
+<span class="fc" id="L43">            price = 20 * numberOfSeats;</span>
         }
 
-<span class="nc" id="L46">        return price;</span>
+<span class="fc" id="L46">        return price;</span>
     }
 
     @Override
     public String toString() {
-<span class="nc bnc" id="L51" title="All 2 branches missed.">        String seats = (numberOfSeats == 1) ? &quot; seat&quot; : &quot; seats&quot;;</span>
-<span class="nc" id="L52">        return &quot;Car : &quot; + getBrand() + &quot; &quot; + getModel() + &quot; &quot; + getProductionYear() + &quot; (&quot; + numberOfSeats + seats + &quot;) : &quot; + dailyRentalPrice() + &quot;â‚¬/day&quot;;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        String seats = (numberOfSeats == 1) ? &quot; seat&quot; : &quot; seats&quot;;</span>
+<span class="fc" id="L52">        return &quot;Car : &quot; + getBrand() + &quot; &quot; + getModel() + &quot; &quot; + getProductionYear() + &quot; (&quot; + numberOfSeats + seats + &quot;) : &quot; + dailyRentalPrice() + &quot;â‚¬/day&quot;;</span>
     }
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (o.getClass() == Car.class) {</span>
-<span class="nc bnc" id="L58" title="All 6 branches missed.">            return this.getBrand().equals(((Car) o).getBrand()) &amp;&amp; this.getModel().equals(((Car) o).getModel()) &amp;&amp; this.getProductionYear() == ((Car) o).getProductionYear();</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (o.getClass() == Car.class) {</span>
+<span class="pc bpc" id="L58" title="1 of 6 branches missed.">            return this.getBrand().equals(((Car) o).getBrand()) &amp;&amp; this.getModel().equals(((Car) o).getModel()) &amp;&amp; this.getProductionYear() == ((Car) o).getProductionYear();</span>
         }
-<span class="nc" id="L60">        return false;</span>
+<span class="fc" id="L60">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

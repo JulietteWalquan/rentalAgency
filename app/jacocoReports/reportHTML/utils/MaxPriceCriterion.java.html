@@ -7,9 +7,14 @@ import java.util.function.Predicate;
 public class MaxPriceCriterion implements Predicate&lt;Vehicle&gt; {
     private final double maxPrice;
 
-<span class="nc" id="L10">    public MaxPriceCriterion(double maxPrice) throws IllegalArgumentException {</span>
-<span class="nc" id="L11">        this.maxPrice = maxPrice;</span>
-<span class="nc" id="L12">    }</span>
+    /**
+     * Create a new max price criterion with the following parameters
+     *
+     * @param maxPrice the maximum price to match
+     */
+<span class="fc" id="L15">    public MaxPriceCriterion(double maxPrice) {</span>
+<span class="fc" id="L16">        this.maxPrice = maxPrice;</span>
+<span class="fc" id="L17">    }</span>
 
     /**
      * Evaluates this predicate on the given argument.
@@ -20,12 +25,17 @@ public class MaxPriceCriterion implements Predicate&lt;Vehicle&gt; {
      */
     @Override
     public boolean test(Vehicle vehicle) {
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        return vehicle.dailyRentalPrice() &lt;= maxPrice;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        return vehicle.dailyRentalPrice() &lt;= maxPrice;</span>
     }
 
 
+    /**
+     * Get the maximum price to match
+     *
+     * @return a double representing the maximum price to match
+     */
     public double getMaxPrice() {
-<span class="nc" id="L28">        return maxPrice;</span>
+<span class="fc" id="L38">        return maxPrice;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -53,7 +53,7 @@ tasks.named('test') {
 }
 
 //new task that only launch test related to the class in the packages agencyTest
-/*tasks.register('agencyTest', Test) {
+tasks.register('agencyTest', Test) {
     useJUnitPlatform() {
         includeTags("agency")
     }
@@ -65,7 +65,7 @@ tasks.register('utilsTest', Test) {
         includeTags("utils")
     }
 }
-*/
+
 
 tasks.test {
     finalizedBy jacocoTestReport // report is always generated after tests run

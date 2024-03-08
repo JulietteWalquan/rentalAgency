@@ -7,9 +7,14 @@ import java.util.function.Predicate;
 public class BrandCriterion implements Predicate&lt;Vehicle&gt; {
     private final String brand;
 
-<span class="nc" id="L10">    public BrandCriterion(String brand) {</span>
-<span class="nc" id="L11">        this.brand = brand;</span>
-<span class="nc" id="L12">    }</span>
+    /**
+     * Create a new brand criterion with the following parameters
+     *
+     * @param brand the brand to match
+     */
+<span class="fc" id="L15">    public BrandCriterion(String brand) {</span>
+<span class="fc" id="L16">        this.brand = brand;</span>
+<span class="fc" id="L17">    }</span>
 
     /**
      * Evaluates this predicate on the given argument.
@@ -20,12 +25,17 @@ public class BrandCriterion implements Predicate&lt;Vehicle&gt; {
      */
     @Override
     public boolean test(Vehicle vehicle) {
-<span class="nc" id="L23">        return vehicle.getBrand().equals(brand);</span>
+<span class="fc" id="L28">        return vehicle.getBrand().equals(brand);</span>
     }
 
 
+    /**
+     * Get the brand to match
+     *
+     * @return a string representing the brand to match
+     */
     public String getBrand() {
-<span class="nc" id="L28">        return brand;</span>
+<span class="fc" id="L38">        return brand;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

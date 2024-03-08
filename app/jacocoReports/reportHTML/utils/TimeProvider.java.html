@@ -2,7 +2,11 @@
 
 import java.util.Calendar;
 
-<span class="nc" id="L5">public class TimeProvider {</span>
+public class TimeProvider {
+
+    private TimeProvider() {
+        // private constructor to hide the implicit public one
+    }
 
     /**
      * Get the current year from the java.util.Calendar class
@@ -10,7 +14,7 @@ import java.util.Calendar;
      * @return the current year
      */
     public static int currentYearValue() {
-<span class="nc" id="L13">        return Calendar.getInstance().get(Calendar.YEAR);</span>
+<span class="fc" id="L17">        return Calendar.getInstance().get(Calendar.YEAR);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
